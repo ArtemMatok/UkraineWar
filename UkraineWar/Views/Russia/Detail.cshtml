@@ -1,0 +1,47 @@
+﻿@using UkraineWar.Data.Enum
+@model MilitaryEquipment
+
+
+<div class="container">
+        <div class="box">
+            <div class="images">
+                <div class="img-holder active">
+                    <img src="@Model.Image" height="300" width="250">
+                </div>
+
+            </div>
+            <div class="basic-info">
+                <h1>@Model.Title</h1>
+                <div class="rate">
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                </div>
+                <span>@Model.Price.ToString("N") $</span>
+
+            </div>
+            <div class="description">
+                <p>@Model.Description</p>
+
+
+            </div>
+            @if(Model.Type == TypeOfMilitary.Танк)
+            {
+                <a asp-action="Tank">Назад</a>
+            }
+            @if (Model.Type == TypeOfMilitary.Літак)
+            {
+                    <a asp-action="Jet">Назад</a>
+            }
+            @if (Model.Type == TypeOfMilitary.Гвинтокрил)
+            {
+                 <a asp-action="Helicopter">Назад</a>
+            }
+            @if (Model.Type == TypeOfMilitary.РСЗО)
+            {
+                  <a asp-action="RSZO">Назад</a>
+            }
+        </div>
+    </div>

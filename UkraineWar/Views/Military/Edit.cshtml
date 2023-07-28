@@ -1,0 +1,48 @@
+﻿@using UkraineWar.Data.Enum
+@using UkraineWar.ViewModels
+@model EditMilitary
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="widget p-5" style="background-color:#5e6828">
+             <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <ejs-textbox id="title"  placeholder="Title" ejs-for="Title" floatLabelType="Always"></ejs-textbox>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <ejs-textbox id="description"  placeholder="Description" ejs-for="Description" floatLabelType="Always"></ejs-textbox>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                 <div class="mb-3">
+                     <ejs-numerictextbox id="price" placeholder="Price" ejs-for="Price" floatLabelType="Always"></ejs-numerictextbox>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <select asp-items="@Html.GetEnumSelectList<TypeOfMilitary>()" asp-for="Type">
+                        <option value="">- Обрату тип -</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select asp-items="@Html.GetEnumSelectList<Country>()" asp-for="Country">
+                        <option value="">- Обрату країну -</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input asp-for="Image" type="file" class="form-control form-control-lg" placeholder="Image" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+
+                <ejs-button id="submit" type="submit" content="Sumbit"  cssClass="e-success"></ejs-button>
+                 <a asp-action="Index" >Back</a>
+             </form>
+
+        </div>
+
+
+    </div>
+
+</div>

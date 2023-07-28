@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MilitaryEquipment>
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>РЗСО України</title>
+</head>
+<body>
+    @foreach (var item in Model)
+    {
+                     <div class='wrapper'>
+
+                        <div class='card'>
+
+                            <img class='card-img' src='@item.Image'>
+
+                            <div class='card-title'>@item.Title</div>
+
+
+                            <div class='card-sub' >
+                    @item.Price.ToString("N") $
+
+                            </div>
+
+                            <div class='btn-keeper'>
+                                <a class='btn' asp-action="Detail" asp-route-id ="@item.MilitaryEquipmentId">Детальніше</a>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+    }
+
+</body>
+</html>
